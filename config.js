@@ -3,27 +3,27 @@
    Empty handle ("") = that button is hidden. Keep contact.vcf in sync.
    ============================================================ */
 const CONFIG = {
-  previewNote: "Sample details. Replace everything in config.js, then set previewNote to \"\".",
+  previewNote: "",
   name: "Sewing Creations-GA",
-  tagline: "Handmade sewing and custom orders",
-  phone: "(555) 010-0000",
-  phoneRaw: "+15550100000",
-  email: "hello@example.com",
-  siteUrl: "",                  // the public page address, once hosted
+  tagline: "Sew special, Sew you, Sew loved!",
+  phone: "(678) 687-1280",
+  phoneRaw: "+16786871280",
+  email: "sewingcreations70@outlook.com",
+  siteUrl: "https://mkhemi.github.io/sewing-creations/",                  // the public page address, once hosted
   skin: "creations",            // creations (logo colors), denim or blush
 
   pay: [
-    { label: "PayPal",   handle: "yourname",  chip: "P", url: h => "https://paypal.me/" + h },
-    { label: "Venmo",    handle: "yourname",  chip: "V", url: h => "https://venmo.com/u/" + h },
-    { label: "Cash App", handle: "$yourname", chip: "$", url: h => "https://cash.app/" + h }
+    { label: "PayPal",   handle: "",          chip: "P", url: h => "https://paypal.me/" + h },
+    { label: "Venmo",    handle: "Akramm",    chip: "V", url: h => "https://venmo.com/u/" + h },
+    { label: "Cash App", handle: "$AlesiaKramm", chip: "$", url: h => "https://cash.app/" + h }
   ],
   follow: [
-    { label: "Facebook",  handle: "yourpage",  chip: "f", url: h => "https://facebook.com/" + h },
-    { label: "Instagram", handle: "@yourname", chip: "I", url: h => "https://instagram.com/" + h.replace("@", "") },
-    { label: "TikTok",    handle: "@yourname", chip: "T", url: h => "https://tiktok.com/@" + h.replace("@", "") }
+    { label: "Facebook",  handle: "SewingCreations-GA", chip: "f", url: h => "https://facebook.com/" + h },
+    { label: "Instagram", handle: "",          chip: "I", url: h => "https://instagram.com/" + h.replace("@", "") },
+    { label: "TikTok",    handle: "",          chip: "T", url: h => "https://tiktok.com/@" + h.replace("@", "") }
   ],
   shop: [
-    { label: "Website or shop",        handle: "example.com",       chip: "W", url: h => "https://" + h },
-    { label: "Request a custom order", handle: "hello@example.com", chip: "C", url: h => "mailto:" + h }
+    { label: "Website or shop",        handle: "",                chip: "W", url: h => "https://" + h },
+    { label: "Request a custom order", handle: "sewingcreations70@outlook.com", chip: "C", url: h => "mailto:" + h }
   ]
 };
