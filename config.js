@@ -18,7 +18,7 @@ const CONFIG = {
     { label: "Cash App", handle: "$AlesiaKramm", chip: "$", url: h => "https://cash.app/" + h }
   ],
   follow: [
-    { label: "Facebook",  handle: "share/1CXGqT5Tef/", show: "Sewing Creations-GA", chip: "f", url: h => "https://facebook.com/" + h },
+    { label: "Facebook",  handle: "people/Sewing-Creations-GA/61569828150358/", show: "Sewing Creations-GA", chip: "f", url: h => "https://facebook.com/" + h },
     { label: "Instagram", handle: "",          chip: "I", url: h => "https://instagram.com/" + h.replace("@", "") },
     { label: "TikTok",    handle: "",          chip: "T", url: h => "https://tiktok.com/@" + h.replace("@", "") }
   ],
