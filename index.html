@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sewing Link Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one phone-width column under a measuring-tape strip; stitched (dashed) cards; three skins via #denim #blush #sage */
+/* Skins: creations (logo colors, default), denim, blush */
+:root, [data-skin="creations"] {
+  --bg:#fdf1c0; --surface:#ffffff; --ink:#161616; --muted:#5c5446;
+  --accent:#d91f26; --accent-ink:#ffffff; --line:#d91f26;
+  --tape:#f6d200; --tape-ink:#161616; --bg-img: url("bg.jpg");
+  color-scheme: light;
+}
+[data-skin="denim"] {
+  --bg:#14263d; --surface:#1d3556; --ink:#f4f1e8; --muted:#a9b8cc;
+  --accent:#ffc83d; --accent-ink:#1a1a1a; --line:#ffc83d;
+  --tape:#ffc83d; --tape-ink:#1a1a1a; --bg-img: none;
+  color-scheme: dark;
+}
+[data-skin="blush"] {
+  --bg:#fbeef0; --surface:#ffffff; --ink:#3a1f2b; --muted:#7d5a68;
+  --accent:#d6336c; --accent-ink:#ffffff; --line:#d6336c;
+  --tape:#d6336c; --tape-ink:#ffffff; --bg-img: none;
+  color-scheme: light;
+}
+:root {
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body {
+  background-color: var(--bg); background-image: var(--bg-img); background-size: 480px 480px; background-repeat: repeat;
+  color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+.tape {
+  height: 30px; background-color: var(--tape);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tape-ink) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, var(--tape-ink) 0 1px, transparent 1px 8px);
+  background-size: 100% 18px, 100% 9px;
+  background-position: bottom, bottom;
+  background-repeat: no-repeat;
+}
+.wrap { max-width: 440px; margin: 0 auto; padding: 22px 16px 40px; display: flex; flex-direction: column; gap: 22px; }
+.note { font-size: 13px; color: var(--muted); background: var(--surface); border: 1px dashed var(--muted); border-radius: 10px; padding: 8px 12px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.logo-card { background:#fff; border:2px dashed var(--line); border-radius:22px; padding:10px; width:100%; }
+.logo-card img { display:block; width:100%; height:auto; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+h1.visible { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1.1; margin: 4px 0 0; text-wrap: balance; }
+.tagline { margin: 0; color: var(--ink); background: var(--surface); border: 2px dashed var(--line); border-radius: 999px; padding: 6px 16px; text-wrap: balance; }
+.save {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--display); font-weight: 800; font-size: 19px;
+  text-decoration: none; padding: 16px 18px; border-radius: 16px;
+}
+.contact-line { background: var(--surface); border: 2px dashed var(--line); border-radius: 16px; padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; font-size: 15px; color: var(--muted); }
+.contact-line a { color: var(--ink); }
+section { display: flex; flex-direction: column; gap: 10px; }
+h2 { font-family: var(--display); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: var(--surface); border: 2px dashed var(--line); border-radius: 999px; padding: 5px 14px; margin: 0 0 2px; width: fit-content; }
+.btn {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface); color: var(--ink); text-decoration: none;
+  border: 2px dashed var(--line); border-radius: 16px; padding: 12px 14px; min-height: 60px;
+}
+.chip {
+  flex: none; width: 38px; height: 38px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--display); font-weight: 800; font-size: 17px;
+}
+.txt { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.label { font-weight: 700; }
+.sub { font-size: 14px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arrow { flex: none; color: var(--accent); font-size: 22px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+footer { display: flex; flex-direction: column; gap: 10px; align-items: center; font-size: 13px; color: var(--muted); background: var(--surface); border: 2px dashed var(--line); border-radius: 16px; padding: 12px; }
+.skins { display: flex; gap: 8px; }
+.skins a { color: var(--ink); border: 1px dashed var(--muted); border-radius: 999px; padding: 4px 12px; text-decoration: none; }
+@media (prefers-reduced-motion: no-preference) { .btn, .save { transition: transform .12s ease; } .btn:active, .save:active { transform: scale(.98); } }
+</style>
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<main class="wrap">
+  <!-- Shown only while config.js has previewNote set -->
+  <div class="note" id="preview-note"></div>
+
+  <header>
+    <div class="logo-card"><img src="logo.png" width="800" height="533" alt="Sewing Creations-GA logo"></div>
+    <h1 id="name" class="sr-only"></h1>
+    <p class="tagline" id="tagline"></p>
+  </header>
+
+  <a class="save" href="contact.vcf" id="save">Save my contact</a>
+  <div class="contact-line" id="contact-line"></div>
+
+  <section aria-labelledby="h-pay"><h2 id="h-pay">Pay</h2><div id="pay" style="display:flex;flex-direction:column;gap:10px"></div></section>
+  <section aria-labelledby="h-follow"><h2 id="h-follow">Follow</h2><div id="follow" style="display:flex;flex-direction:column;gap:10px"></div></section>
+  <section aria-labelledby="h-shop"><h2 id="h-shop">Shop and orders</h2><div id="shop" style="display:flex;flex-direction:column;gap:10px"></div></section>
+
+  <footer>
+    <div class="skins" id="skins" aria-label="Preview colors">
+      <a href="#creations">Logo</a><a href="#denim">Denim</a><a href="#blush">Blush</a>
+    </div>
+    <div>Tap or scan to open this page</div>
+  </footer>
+</main>
+
+<script src="config.js"></script>
+<script>
+
+const $ = id => document.getElementById(id);
+function render(list, el) {
+  el.innerHTML = "";
+  let n = 0;
+  list.forEach(item => {
+    if (!item.handle) return;               // empty handle = button hidden
+    n++;
+    const a = document.createElement("a");
+    a.className = "btn";
+    a.href = item.url(item.handle);
+    a.rel = "noopener";
+    a.innerHTML =
+      '<span class="chip"></span><span class="txt"><span class="label"></span><span class="sub"></span></span><span class="arrow" aria-hidden="true">&rsaquo;</span>';
+    a.querySelector(".chip").textContent = item.chip;
+    a.querySelector(".label").textContent = item.label;
+    a.querySelector(".sub").textContent = item.handle;
+    el.appendChild(a);
+  });
+  el.closest("section").hidden = n === 0;   // empty section = heading hidden
+}
+function applySkin() {
+  const h = (location.hash || "").replace("#", "");
+  const skin = ["creations", "denim", "blush"].includes(h) ? h : CONFIG.skin;
+  document.documentElement.setAttribute("data-skin", skin);
+}
+document.title = CONFIG.name;
+$("name").textContent = CONFIG.name;
+$("tagline").textContent = CONFIG.tagline || "";
+$("tagline").hidden = !CONFIG.tagline;
+$("preview-note").textContent = CONFIG.previewNote || "";
+$("preview-note").hidden = !CONFIG.previewNote;
+const cl = $("contact-line");
+cl.innerHTML = "";
+if (CONFIG.phone) { const t = document.createElement("a"); t.href = "tel:" + CONFIG.phoneRaw; t.textContent = CONFIG.phone; cl.appendChild(t); }
+if (CONFIG.email) { const m = document.createElement("a"); m.href = "mailto:" + CONFIG.email; m.textContent = CONFIG.email; cl.appendChild(m); }
+cl.hidden = !cl.children.length;
+render(CONFIG.pay, $("pay"));
+render(CONFIG.follow, $("follow"));
+render(CONFIG.shop, $("shop"));
+applySkin();
+window.addEventListener("hashchange", applySkin);
+</script>
+</body>
+</html>
