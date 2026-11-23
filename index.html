@@ -135,7 +135,7 @@ function render(list, el) {
       '<span class="chip"></span><span class="txt"><span class="label"></span><span class="sub"></span></span><span class="arrow" aria-hidden="true">&rsaquo;</span>';
     a.querySelector(".chip").textContent = item.chip;
     a.querySelector(".label").textContent = item.label;
-    a.querySelector(".sub").textContent = item.handle;
+    a.querySelector(".sub").textContent = item.show || item.handle;
     el.appendChild(a);
   });
   el.closest("section").hidden = n === 0;   // empty section = heading hidden
